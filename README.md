@@ -349,6 +349,8 @@ Graphs can also hold `groups` (visual frames), `subgraphs` (definitions shared b
     - `MGMappings.swift`: which hue each data type, category and group colour uses.
 
     The tokens come from `design/metalgraphics/tokens.json`, the design system's own export. To re-sync, copy a new one over it and run `swift scripts/sync-design-tokens.swift`. The fonts are in `Resources/Fonts` with their OFL licence.
+
+    The app icon (a friendly AI bot whose ears are two graph sockets) is drawn in code: `swift scripts/make-app-icon.swift` writes `design/icon/AppIcon.icns`, which `scripts/build-app.sh` copies into the bundle.
   - `AppModel`: the open tabs (`WorkflowDocument`: a graph with its own undo history, editor state and results), the queue, run state and history. `Workflows.swift` holds tabs, opening and saving, the library, presets and the session.
   - `Engine`: an actor that owns the executor and the loaded models; `Backends/` puts it behind `ExecutionBackend` next to `RemoteMLXBackend` (a server), with the Servers panel, the run-target menu and the event coalescer.
   - `GraphEditor/`: the node editor; `TabStrip`, `SidebarRail` (Workflows, Presets, Assets, Queue, Node Library), `QueuePanel` (with the Output list), `Assets.swift` (imports and drops), `ResultsPane` (with the viewer), `PresetGallery`, the inspector (`InspectorView`, `NodeExtras`) and `AddToWorkflow` (the chains in `SimpleChains.swift`).
